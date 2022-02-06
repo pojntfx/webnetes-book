@@ -2,26 +2,47 @@ name: mdBook CI
 
 on:
   push:
-    branches:
-      - main
+  pull_request:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
+  build-linux:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Setup mdBook
-        uses: peaceiris/actions-mdbook@v1
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          mdbook-version: "latest"
-      - name: Add Table of Contents support
-        run: cargo install mdbook-toc
-      - name: Build with mdBook
-        run: mdbook build
-      - name: Setup CNAME
-        run: echo "docs.webnetes.dev" > ./book/CNAME
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+          fetch-depth: 0
+      - name: Set up hydrun
+        shell: bash
+        run: |
+          curl -L -o /tmp/hydrun "https://github.com/pojntfx/hydrun/releases/latest/download/hydrun.linux-$(uname -m)"
+          sudo install /tmp/hydrun /usr/local/bin
+      - name: Build with hydrun
+        shell: bash
+        run: hydrun -o alpine:edge "echo https://dl-cdn.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && apk add mdbook make && make -j $(nproc)"
+      - name: Fix permissions for output
+        shell: bash
+        run: sudo chown -R $USER .
+      - name: Publish release archive to GitHub releases
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: marvinpinto/action-automatic-releases@latest
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: latest
+          prerelease: false
+          files: |
+            out/release.tar.gz
+      - name: Extract release archive
+        shell: bash
+        run: |
+          mkdir -p /tmp/gh-pages
+          tar xvzf out/release.tar.gz -C /tmp/gh-pages
+      - name: Publish release to GitHub pages
+        if: ${{ github.ref == 'refs/heads/main' }}
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          branch: gh-pages
+          folder: /tmp/gh-pages
+          git-config-name: GitHub Pages Bot
+          git-config-email: bot@example.com
