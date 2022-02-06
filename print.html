@@ -4,49 +4,28 @@
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>The Webnetes Project</title>
-        
         <meta name="robots" content="noindex" />
-        
-        
-
-
         <!-- Custom HTML head -->
-        
-
-
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-        
         <link rel="icon" href="favicon.svg">
-        
-        
         <link rel="shortcut icon" href="favicon.png">
-        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        
         <link rel="stylesheet" href="css/print.css" media="print">
-        
-
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
         <link rel="stylesheet" href="fonts/fonts.css">
-        
-
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
-
-        
     </head>
     <body>
         <!-- Provide site root to javascript -->
@@ -105,7 +84,6 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
                 <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
@@ -122,29 +100,23 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        
                         <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                        
                     </div>
 
                     <h1 class="menu-title">The Webnetes Project</h1>
 
                     <div class="right-buttons">
-                        
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                        
-                        
                     </div>
                 </div>
 
-                
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -152,8 +124,6 @@
                         </ul>
                     </div>
                 </div>
-                
-
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
@@ -172,13 +142,12 @@
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p><strong>Want to learn more about the project?</strong> Continue to the <a href="./INTRODUCTION.html">introduction</a>.</p>
 <p><strong>Want to see it in action?</strong> Check out the <a href="https://www.youtube.com/watch?v=W0PayDQ7RIg">demo video</a>.</p>
-<p><strong>Want to use Webnetes or develop for it?</strong> Follow the <a href="./getting-started">getting started guide</a> or run the app directly:<br></p>
-<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240">
-</a></p>
+<p><strong>Want to use Webnetes or develop for it?</strong> Follow the <a href="./getting-started">getting started guide</a> or run the app directly:<br>
+<a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <h2 id="license"><a class="header" href="#license">License</a></h2>
 <p>The Webnetes Project © 2021 Felicitas Pojtinger and contributors</p>
 <p>SPDX-License-Identifier: AGPL-3.0</p>
-<h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>Webnetes is a peer-to-peer computing platform for the browser and node. Unlike traditional, server-only container orchestration systems such as <a href="https://kubernetes.io/">Kubernetes</a>, which usually use <a href="https://opencontainers.org/">OCI containers</a> for compute, <a href="https://github.com/containernetworking/cni">CNI</a> for networking and <a href="https://github.com/container-storage-interface/spec">CSI</a> for storage, Webnetes switches these components out in favor of <a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a>, <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a> and <a href="https://en.wikipedia.org/wiki/WebTorrent">WebTorrent</a>. By doing so, Webnetes is <strong>universal</strong> — it runs on every system, from the server (using <a href="https://nodejs.org/en/">Node</a>) to the browser, with full interoperability.</p>
 <p>By using standardized web APIs and polyfilling APIs that would normally only be found on the server (such as <a href="https://en.wikipedia.org/wiki/Berkeley_sockets">Berkeley sockets</a>) to work everywhere, Webnetes is able to bridge the gap between devices. It even runs on iOS (using Safari) and other heavily restricted proprietary mobile operating systems, without requiring any installation. Joining a cluster becomes as easy as scanning a QR code or clicking a link; no need for proprietary app distribution mechanisms like the App Store or the Play Store. Many workloads can thus also be moved from the server to the client, removing the dependency on expensive servers or proprietary cloud systems such as AWS or GCP.</p>
 <p>Due to recent advancements to the web platform, apps are no longer limited to only using JavaScript — Webnetes uses WebAssembly, which means that many languages, including C, C++, Go, Rust and Java, are supported. You also aren't limited to apps without native capabilities either; almost all web APIs are available, including <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Bluetooth_API">Web Bluetooth</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/USB">Web USB</a>, <a href="https://www.w3.org/TR/webmidi/">Web MIDI</a>, <a href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API">File System Access</a> and many more. In most cases, getting an app to run in Webnetes simply means to (re-)compile it to WebAssembly. Even software that depends on lower-level networking (such as TCP client/server systems) or terminals runs effortlessly. Thanks to the power of WebRTC, typical networking barriers in building distributed apps are also removed; Webnetes creates global peer-to-peer overlay networks, removing the need for complex and expensive VPN or tunneling setups.</p>
@@ -186,7 +155,7 @@
 <blockquote>
 <p>While we do believe that Webnetes is already useful for solving many of the problems of today's distributed apps, please keep in mind that Webnetes is experimental and, as of 2021, primarily a research project. If you would like to help us get it production ready, please consider <a href="./CONTRIBUTING.html">contributing</a>.</p>
 </blockquote>
-<h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
 <p>In this guide, we'll do the following:</p>
 <ol>
 <li><a href="getting-started/./develop">Develop</a> an app which runs on Webnetes</li>
@@ -197,38 +166,12 @@
 <blockquote>
 <p>Need help? Join <a href="https://matrix.to/#/#webnetes-contributors:matrix.org?via=matrix.org">Webnetes Users on Matrix</a> and we'll help you.</p>
 </blockquote>
-<h1 id="develop"><a class="header" href="#develop">Develop</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="develop"><a class="header" href="#develop">Develop</a></h1>
 <p>Getting started developing for Webnetes is simple and not much harder than native development; migrating existing apps is also possible. In most cases, the only difference from a Webnetes-enabled project to a native-only project is the additional WebAssembly target.</p>
 <p>We have guides for a many popular, officially supported languages like Go and Rust to get you started quickly. If your language doesn't have such a guide yet, you can probably still get it to work; see <a href="getting-started/develop/./more.html">More</a>.</p>
-<h1 id="c"><a class="header" href="#c">C</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c"><a class="header" href="#c">C</a></h1>
 <h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/c.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/c.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/c.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/c.html#cmake-configuration">CMake Configuration</a></li>
-<li><a href="getting-started/develop/c.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/c.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/c.html#tcp-echo-server">TCP Echo Server</a>
-<ul>
-<li><a href="getting-started/develop/c.html#source-code-1">Source Code</a></li>
-<li><a href="getting-started/develop/c.html#cmake-configuration-1">CMake Configuration</a></li>
-<li><a href="getting-started/develop/c.html#make-configuration-1">Make Configuration</a></li>
-<li><a href="getting-started/develop/c.html#next-steps-1">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/c.html#tcp-echo-client">TCP Echo Client</a>
-<ul>
-<li><a href="getting-started/develop/c.html#source-code-2">Source Code</a></li>
-<li><a href="getting-started/develop/c.html#cmake-configuration-2">CMake Configuration</a></li>
-<li><a href="getting-started/develop/c.html#make-configuration-2">Make Configuration</a></li>
-<li><a href="getting-started/develop/c.html#next-steps-2">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status"><a class="header" href="#language-support-status">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td></tr>
@@ -798,35 +741,9 @@ You've sent: Hello, dear reader!
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://github.com/WebAssembly/threads">WebAssembly threads</a> are not yet implemented.</p>
 </div>
-<h1 id="c-1"><a class="header" href="#c-1">C++</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="c-1"><a class="header" href="#c-1">C++</a></h1>
 <h2 id="table-of-contents-1"><a class="header" href="#table-of-contents-1">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/cpp.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/cpp.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/cpp.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/cpp.html#cmake-configuration">CMake Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/cpp.html#tcp-echo-server">TCP Echo Server</a>
-<ul>
-<li><a href="getting-started/develop/cpp.html#source-code-1">Source Code</a></li>
-<li><a href="getting-started/develop/cpp.html#cmake-configuration-1">CMake Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#make-configuration-1">Make Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#next-steps-1">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/cpp.html#tcp-echo-client">TCP Echo Client</a>
-<ul>
-<li><a href="getting-started/develop/cpp.html#source-code-2">Source Code</a></li>
-<li><a href="getting-started/develop/cpp.html#cmake-configuration-2">CMake Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#make-configuration-2">Make Configuration</a></li>
-<li><a href="getting-started/develop/cpp.html#next-steps-2">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-1"><a class="header" href="#language-support-status-1">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td></tr>
@@ -1274,35 +1191,9 @@ endif()
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p><a href="https://github.com/WebAssembly/threads">WebAssembly threads</a> are not yet implemented.</p>
 </div>
-<h1 id="go"><a class="header" href="#go">Go</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="go"><a class="header" href="#go">Go</a></h1>
 <h2 id="table-of-contents-2"><a class="header" href="#table-of-contents-2">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/go.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/go.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/go.html#module">Module</a></li>
-<li><a href="getting-started/develop/go.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/go.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/go.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/go.html#tcp-chat-server">TCP Chat Server</a>
-<ul>
-<li><a href="getting-started/develop/go.html#module-1">Module</a></li>
-<li><a href="getting-started/develop/go.html#source-code-1">Source Code</a></li>
-<li><a href="getting-started/develop/go.html#make-configuration-1">Make Configuration</a></li>
-<li><a href="getting-started/develop/go.html#next-steps-1">Next Steps</a></li>
-</ul>
-</li>
-<li><a href="getting-started/develop/go.html#tcp-chat-client">TCP Chat Client</a>
-<ul>
-<li><a href="getting-started/develop/go.html#module-2">Module</a></li>
-<li><a href="getting-started/develop/go.html#source-code-2">Source Code</a></li>
-<li><a href="getting-started/develop/go.html#make-configuration-2">Make Configuration</a></li>
-<li><a href="getting-started/develop/go.html#next-steps-2">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-2"><a class="header" href="#language-support-status-2">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
@@ -1680,19 +1571,9 @@ Connected to 127.0.0.1:4206
 &lt;c22c532b-bd68-42d6-b2d3-bf69cf0dce8b&gt;: Hello from the native Go chat client!
 </code></pre>
 <p>The native target works! Now continue to <a href="getting-started/develop/../distribute.html">Distribute</a> to learn how to run the WebAssembly target.</p>
-<h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
 <h2 id="table-of-contents-3"><a class="header" href="#table-of-contents-3">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/rust.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/rust.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/rust.html#crate">Crate</a></li>
-<li><a href="getting-started/develop/rust.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/rust.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/rust.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-3"><a class="header" href="#language-support-status-3">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
@@ -1748,18 +1629,9 @@ Hello, world!
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>No Rust bindings to <a href="https://github.com/alphahorizonio/unisockets">unisockets</a> have been implemented yet.</p>
 </div>
-<h1 id="zig"><a class="header" href="#zig">Zig</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="zig"><a class="header" href="#zig">Zig</a></h1>
 <h2 id="table-of-contents-4"><a class="header" href="#table-of-contents-4">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/zig.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/zig.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/zig.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/zig.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/zig.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-4"><a class="header" href="#language-support-status-4">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
@@ -1814,19 +1686,9 @@ Hello, world!
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>No Zig bindings to <a href="https://github.com/alphahorizonio/unisockets">unisockets</a> have been implemented yet.</p>
 </div>
-<h1 id="java"><a class="header" href="#java">Java</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="java"><a class="header" href="#java">Java</a></h1>
 <h2 id="table-of-contents-5"><a class="header" href="#table-of-contents-5">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/java.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/java.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/java.html#pom">POM</a></li>
-<li><a href="getting-started/develop/java.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/java.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/java.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-5"><a class="header" href="#language-support-status-5">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
@@ -2002,19 +1864,9 @@ Hello, world!
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
 <p>No Java bindings to <a href="https://github.com/alphahorizonio/unisockets">unisockets</a> have been implemented yet.</p>
 </div>
-<h1 id="assemblyscript"><a class="header" href="#assemblyscript">AssemblyScript</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="assemblyscript"><a class="header" href="#assemblyscript">AssemblyScript</a></h1>
 <h2 id="table-of-contents-6"><a class="header" href="#table-of-contents-6">Table of Contents</a></h2>
-<ul>
-<li><a href="getting-started/develop/assemblyscript.html#language-support-status">Language Support Status</a></li>
-<li><a href="getting-started/develop/assemblyscript.html#hello-world">Hello, world!</a>
-<ul>
-<li><a href="getting-started/develop/assemblyscript.html#package">Package</a></li>
-<li><a href="getting-started/develop/assemblyscript.html#source-code">Source Code</a></li>
-<li><a href="getting-started/develop/assemblyscript.html#make-configuration">Make Configuration</a></li>
-<li><a href="getting-started/develop/assemblyscript.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-</ul>
+<!-- toc -->
 <h2 id="language-support-status-6"><a class="header" href="#language-support-status-6">Language Support Status</a></h2>
 <table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#2">2</a></sup></td><td>❌<sup class="footnote-reference"><a href="#3">3</a></sup></td></tr>
@@ -2103,17 +1955,13 @@ seed: all
 <h3 id="next-steps-13"><a class="header" href="#next-steps-13">Next Steps</a></h3>
 <p>Now continue to <a href="getting-started/develop/../distribute.html">Distribute</a> to learn how to run the WebAssembly target.</p>
 <div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
-<p>AssemblyScript targets only WebAssembly.<br></p>
+<p>AssemblyScript targets only WebAssembly.<br>
+<sup class="footnote-reference"><a href="#2">2</a></sup>: No AssemblyScript bindings to <a href="https://github.com/alphahorizonio/unisockets">unisockets</a> have been implemented yet.<br>
+<sup class="footnote-reference"><a href="#3">3</a></sup>: AssemblyScript does <a href="https://github.com/AssemblyScript/assemblyscript/issues/376">not yet support async/await</a>.<br></p>
 </div>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
-<p>No AssemblyScript bindings to <a href="https://github.com/alphahorizonio/unisockets">unisockets</a> have been implemented yet.<br></p>
-</div>
-<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
-<p>AssemblyScript does <a href="https://github.com/AssemblyScript/assemblyscript/issues/376">not yet support async/await</a>.<br></p>
-</div>
-<h1 id="more"><a class="header" href="#more">More</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="more"><a class="header" href="#more">More</a></h1>
 <p>Webnetes can, in addition to the languages documented before, also run any further languages supported by the runtimes as <a href="getting-started/develop/../../architecture/compute.html">documented in Compute</a>. Even if your language doesn't support any of the ones specified there, adding support for another one is easy (just add your own handler to the <a href="https://github.com/alphahorizonio/webnetes/blob/main/lib/controllers/virtual-machine.ts#L12-L18">virtual machine</a>). If you wish to have another runtime officially supported, please open a new issue in the <a href="https://github.com/alphahorizonio/webnetes/issues">GitHub issue tracker</a> and we'll look into it.</p>
-<h1 id="distribute"><a class="header" href="#distribute">Distribute</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="distribute"><a class="header" href="#distribute">Distribute</a></h1>
 <p>Now that you've got your app's build configuration up and running, you can start deploying your app to Webnetes. Doing so is a pretty simple process:</p>
 <ol>
 <li>Define your app's resources using a <code>stack.yaml</code> file</li>
@@ -2379,8 +2227,7 @@ spec:
 <h2 id="creating-a-cluster"><a class="header" href="#creating-a-cluster">Creating a Cluster</a></h2>
 <p>Let's create a cluster for our app. We'll use <a href="https://webnetes.dev/">webnetesctl</a> from now on, but feel free to use <a href="https://lite.webnetes.dev/">webnetesctl Lite</a> if you prefer something more lightweight.</p>
 <p>First, open webnetesctl:</p>
-<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240">
-</a></p>
+<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <p>You'll be presented with a screen like the following:</p>
 <p><img src="getting-started/./img/start.png" alt="webnetesctl start screen" /></p>
 <p>We now have to create a cluster using a cluster ID. We'll choose <code>69.42.8</code> in this example. Enter this value in the <code>New Cluster ID</code> field and click on <code>Create Cluster</code>. You should be greeted by the following:</p>
@@ -2440,7 +2287,7 @@ spec:
 <p>After the deployment has finished, and assuming you've set the <code>terminalHostNodeId</code> to the manager node's IP, a terminal should open up:</p>
 <p><img src="getting-started/./img/terminal.png" alt="webnetesctl terminal" /></p>
 <p>Awesome, you've just deployed your first app to webnetes! You could now repeat this process for the <a href="getting-started/./develop/c.html#tcp-echo-client">C TCP Echo Client</a> and test the full network, or continue to <a href="getting-started/./operate.html">Operate</a> for further operation resources.</p>
-<h1 id="operate"><a class="header" href="#operate">Operate</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="operate"><a class="header" href="#operate">Operate</a></h1>
 <p>After <a href="getting-started/./distribute.html">distributing</a>, we have now successfully deployed some resources to the cluster.</p>
 <p>On the target node, you can also check the resource graph to see the resources:</p>
 <p><img src="getting-started/./img/target-node-resource-graph.png" alt="webnetesctl target node resource graph" /></p>
@@ -2452,10 +2299,10 @@ spec:
 <p>Using the explorer or the overview, resources can now also be deleted.</p>
 <h2 id="youre-done"><a class="header" href="#youre-done">You're Done!</a></h2>
 <p>🎉 That's it! You now know how to develop, distribute and operate your apps on Webnetes. There are many more features of Webnetes that we haven't touched on yet (the augmented reality resource graph, cluster statistics in the overview etc.), so feel free to play around with it!</p>
-<h1 id="architecture"><a class="header" href="#architecture">Architecture</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="architecture"><a class="header" href="#architecture">Architecture</a></h1>
 <p>Webnetes is made up of four high-level, independent systems: a <a href="architecture/./compute.html">compute system</a>, a <a href="architecture/./networking.html">networking system</a>, a <a href="architecture/./storage.html">storage system</a> and finally a <a href="architecture/./management.html">management system</a>, which, once combined, form a <a href="architecture/../components/webnetes.html">Webnetes node</a>.</p>
 <p>While the following is not exhaustive documentation, it should give you a quick overview of the systems; for a deeper understanding, please consult the linked source code documentation.</p>
-<h1 id="compute"><a class="header" href="#compute">Compute</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="compute"><a class="header" href="#compute">Compute</a></h1>
 <p>The Webnetes compute stack is build on <a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a>, a byte-code format. The stack is configured using resources. In order to run WebAssembly (or WASM for short), a virtual machine is required. In the case of Webnetes, this component is called a runtime; the following are currently supported:</p>
 <ul>
 <li><a href="https://wasi.dev/">WASI</a> via <a href="https://github.com/wasmerio/wasmer-js">wasmer-js</a> — currently used to support C, C++, Rust, Zig, AssemblyScript and TinyGo (<code>wasm32-wasi</code> target)</li>
@@ -2467,37 +2314,36 @@ spec:
 <p>Another feature is <code>stdin</code>/<code>stdout</code> redirection. Using the <a href="architecture/./networking.html">networking system</a>, Webnetes separates a workload from it's terminal, and enables attaching remote terminals to workloads anywhere in the cluster.</p>
 <p>For more information on how to use the compute system, consult the <a href="architecture/../getting-started">getting started guide</a> or the <a href="architecture/../reference/resources-yaml.html">resources YAML reference</a>.</p>
 <p>For more information on how the compute system works, consult the <a href="https://alphahorizonio.github.io/webnetes/classes/virtualmachine.html">virtual machine documentation</a>.</p>
-<h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="networking"><a class="header" href="#networking">Networking</a></h1>
 <p>The Webnetes network stack is build on <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a>, a peer-to-peer real-time communication technology. This stack is used universally for both <a href="architecture/./management.html">management</a> and inter-workload communication and exposed using <a href="https://github.com/alphahorizonio/unisockets">unisockets</a>, a universal Berkeley sockets implementation for WebRTC. The stack is configured using resources.</p>
 <p>For more information on how to use the networking system, consult the <a href="architecture/../getting-started">getting started guide</a> or the <a href="architecture/../reference/resources-yaml.html">resources YAML reference</a>.</p>
 <p>For more information on how the networking system works, consult the <a href="https://alphahorizonio.github.io/unisockets/">unisockets documentation</a> and in particular the <a href="https://alphahorizonio.github.io/unisockets/classes/transporter.html">unisockets transporter documentation</a>.</p>
-<h1 id="storage"><a class="header" href="#storage">Storage</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="storage"><a class="header" href="#storage">Storage</a></h1>
 <p>The Webnetes storage/registry stack is build on <a href="https://en.wikipedia.org/wiki/WebTorrent">WebTorrent</a>, an implementation of the BitTorrent protocol based on WebRTC. It is used to make binaries available for workloads. The stack is configured using resources.</p>
 <p>To support flexible/private deployments, Webnetes enables using multiple WebTorrent configurations using repositories. Binaries are referenced using an info hash or a magnet link, just like with BitTorrent.</p>
 <p>For more information on how to use the storage system, consult the <a href="architecture/../getting-started">getting started guide</a> or the <a href="architecture/../reference/resources-yaml.html">resources YAML reference</a>.</p>
 <p>For more information on how the storage system works, consult the <a href="https://alphahorizonio.github.io/webnetes/classes/filerepository.html">file repository documentation</a>.</p>
-<h1 id="management"><a class="header" href="#management">Management</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="management"><a class="header" href="#management">Management</a></h1>
 <p>Webnetes is based on resources, which are documented in the <a href="architecture/../reference/resources-yaml.html">resources YAML reference</a>. The management system manages these resources across the cluster using a peer-to-peer client protocol based on the <a href="architecture/./networking.html">networking system</a>. This protocol is also used to transmit status messages and node information, such as benchmark scores and network performance.</p>
 <p>For getting a deeper understanding on how the management system works, two pieces are important: the <a href="https://alphahorizonio.github.io/webnetes/classes/resources.html">resources pipe</a>, which handles resources on the local node and the <a href="https://alphahorizonio.github.io/webnetes/classes/peers.html">peer pipe</a>, which manages remote peer pipes and takes care of synchronization.</p>
-<h1 id="components"><a class="header" href="#components">Components</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="components"><a class="header" href="#components">Components</a></h1>
 <p>The most high-level components of Webnetes are the <a href="components/./webnetes.html">node</a> and the <a href="components/./webnetesctl.html">app</a>. The former is used to build the app and can be embedded in any Node.js or web app, the latter is a ready-to-use way of working with Webnetes.</p>
-<h1 id="node-webnetes"><a class="header" href="#node-webnetes">Node (webnetes)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="node-webnetes"><a class="header" href="#node-webnetes">Node (webnetes)</a></h1>
 <p>The node is the embeddable version of Webnetes. It exposes the <a href="components/../architecture">four base systems</a> with an easy-to-use API and is used to power the <a href="components/./webnetesctl.html">app</a>. Using basic knowledge of JavaScript or TypeScript, it can be effortlessly embedded in any Node.js or web app if you wish to use any of Webnetes' features.</p>
 <p>For more information, see the <a href="components/../reference/embedding-api.html">embedding API</a>.</p>
-<h1 id="app-webnetesctl"><a class="header" href="#app-webnetesctl">App (webnetesctl)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="app-webnetesctl"><a class="header" href="#app-webnetesctl">App (webnetesctl)</a></h1>
 <h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
 <p>To interact with the <a href="components/./webnetes.html">node</a>, an app is used. It provides an easy-to-use interface to develop, distribute and operate apps on Webnetes. It should be noted that while webnetesctl is the primary app, you can also choose to use an alternative for a more lightweight experience or even build your own app without too much effort.</p>
 <h2 id="implementations"><a class="header" href="#implementations">Implementations</a></h2>
 <h3 id="webnetesctl"><a class="header" href="#webnetesctl">webnetesctl</a></h3>
 <p><a href="https://webnetes.dev/"><img src="components/../getting-started/img/start.png" alt="webnetesctl start screen" /></a></p>
 <p>Recommended for most users. Webnetesctl is built with React, Ant Design and the <a href="components/./webnetes.html">Webnetes node</a>. For more information, check out the <a href="https://github.com/alphahorizonio/webnetesctl">source code</a> or try it out:</p>
-<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240">
-</a></p>
+<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <h3 id="webnetesctl-lite"><a class="header" href="#webnetesctl-lite">webnetesctl Lite</a></h3>
 <p><a href="https://lite.webnetes.dev/"><img src="components/../getting-started/img/start-lite.png" alt="webnetesctl Lite start screen" /></a></p>
 <p>For advanced users who prefer something more lightweight. Webnetesctl Lite is built with Vanilla JS and the <a href="components/./webnetes.html">Webnetes node</a>; for more information, check out the <a href="https://github.com/alphahorizonio/webnetes/tree/main/app/webnetes_web">source code</a> or try it out:</p>
 <p><a href="https://lite.webnetes.dev/"><img src="https://img.shields.io/badge/webnetesctl%20Lite-lite.webnetes.dev-blueviolet" alt="Lite" /></a></p>
-<h1 id="bindings"><a class="header" href="#bindings">Bindings</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bindings"><a class="header" href="#bindings">Bindings</a></h1>
 <p>If you want to support something that isn't part of your language's libraries or not supported by your runtime, you can polyfill it using bindings to Webnetes.</p>
 <p>There are currently two bindings which do this, in particular to support networking:</p>
 <ul>
@@ -2505,13 +2351,13 @@ spec:
 <li><a href="bindings/./tinynet.html">tinynet</a>, a net implementation for Go and TinyGo based on unisockets</li>
 </ul>
 <p>These bindings are enabled using <a href="bindings/../reference/resources-yaml.html#capability">capabilities</a>.</p>
-<h1 id="cc-networking-unisockets"><a class="header" href="#cc-networking-unisockets">C/C++ Networking (unisockets)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cc-networking-unisockets"><a class="header" href="#cc-networking-unisockets">C/C++ Networking (unisockets)</a></h1>
 <p>To support networking in C ABI compatible languages, such as C, C++, Go or TinyGo, unisockets is used. Consult the <a href="https://github.com/alphahorizonio/unisockets">unisockets documentation</a> for more information.</p>
-<h1 id="go-networking-tinynet"><a class="header" href="#go-networking-tinynet">Go Networking (tinynet)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="go-networking-tinynet"><a class="header" href="#go-networking-tinynet">Go Networking (tinynet)</a></h1>
 <p>To support networking in Go and TinyGo, you can either use <a href="bindings/./unisockets.html">unisockets</a> directly, or preferably tinynet, a <code>net</code> implementation for Go and TinyGo based on unisockets. Consult the <a href="https://github.com/alphahorizonio/tinynet">tinynet documentation</a> for more information.</p>
-<h1 id="reference"><a class="header" href="#reference">Reference</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference"><a class="header" href="#reference">Reference</a></h1>
 <p>Here you can find reference information on the <a href="reference/./resources-yaml.html">resources YAML</a> and the <a href="reference/./embedding-api.html">embedding API</a>.</p>
-<h1 id="resources-yaml"><a class="header" href="#resources-yaml">Resources YAML</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="resources-yaml"><a class="header" href="#resources-yaml">Resources YAML</a></h1>
 <p>Webnetes is based on the concept of resources as the primary means of configuration. This is a listing of all available resources. Many examples of resource YAML usage can be found in the <code>stack.yaml</code> files in the <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples">repository</a>.</p>
 <p>Resources have a few common fields:</p>
 <ul>
@@ -2761,7 +2607,7 @@ spec:
 <li><code>terminalLabel</code>: Unique label by which to identify the <a href="reference/resources-yaml.html#workload">workload</a>'s terminal</li>
 <li><code>terminalHostNodeId</code>: The node ID to attach the terminal to. <code>localhost</code> references the node onto which the workload is being deployed.</li>
 </ul>
-<h1 id="embedding-api"><a class="header" href="#embedding-api">Embedding API</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="embedding-api"><a class="header" href="#embedding-api">Embedding API</a></h1>
 <p>Embedding the <a href="reference/../components/webnetes.html">node</a> is easy and <a href="https://alphahorizonio.github.io/webnetes/classes/node.html">API documentation is available</a>.</p>
 <h2 id="getting-the-library"><a class="header" href="#getting-the-library">Getting the Library</a></h2>
 <p>Webnetes can be used with or without a bundler.</p>
@@ -2890,7 +2736,7 @@ npm i -s @alphahorizonio/webnetes
 );
 </code></pre>
 <p>Now, <code>open</code> the node using the configuration resources. You can find the full source code in <a href="https://github.com/alphahorizonio/webnetes/tree/main/app/webnetes_node">the repository</a>. Consult the <a href="https://alphahorizonio.github.io/webnetes/classes/node.html">API documentation</a> for further resources.</p>
-<h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
 <p>Webnetes is being developed as free/libre and open source sofware in the Alpha Horizon organization on <a href="https://github.com/alphahorizonio">GitHub</a>. We appreciate contributions, and there is no need to sign a CLA!</p>
 <h2 id="chat"><a class="header" href="#chat">Chat</a></h2>
 <ul>
@@ -2904,59 +2750,31 @@ npm i -s @alphahorizonio/webnetes
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
-
-                        
-
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-
-                
             </nav>
 
         </div>
 
-        
-
-        
-
-        
-
-        
         <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-        
-
-        
-
-        
         <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
         <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-        
-
-        
-        
         <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-        
-        
-
     </body>
 </html>
