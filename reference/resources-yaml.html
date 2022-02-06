@@ -138,14 +138,14 @@
 <p>Webnetes is based on the concept of resources as the primary means of configuration. This is a listing of all available resources. Many examples of resource YAML usage can be found in the <code>stack.yaml</code> files in the <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples">repository</a>.</p>
 <p>Resources have a few common fields:</p>
 <ul>
-<li><code>apiVersion</code>: The API version, currently always <code>schema.webnetes.dev/v1alpha1</code></li>
+<li><code>apiVersion</code>: The API version, currently always <code>schema.webnetesctl.vercel.app/v1alpha1</code></li>
 <li><code>kind</code>: The resource type</li>
 <li><code>metadata</code>: Contains a <code>label</code> (the node-unique identifier) and a <code>name</code> (the human-readable descriptor)</li>
 <li><code>spec</code>: The resource-specific data</li>
 </ul>
 <p>This pattern is strongly influenced by <a href="https://kubernetes.io/">Kubernetes</a>.</p>
 <h2 id="runtime"><a class="header" href="#runtime">Runtime</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -161,7 +161,7 @@ spec: {}
 <li><code>jssi_teavm</code>: For Java using JSSI</li>
 </ul>
 <h2 id="capability"><a class="header" href="#capability">Capability</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -179,7 +179,7 @@ spec: {}
 <li><code>net_connect</code>: Enables connecting to a socket</li>
 </ul>
 <h2 id="processor"><a class="header" href="#processor">Processor</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Processor
 metadata:
   name: Felicitas's iPhone
@@ -201,14 +201,14 @@ spec:
 <li><code>capabilties</code>: An array of <a href="#capability">capability</a> labels</li>
 </ul>
 <h2 id="signaler"><a class="header" href="#signaler">Signaler</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Signaler
 metadata:
   name: Public unisockets Signaling Server
   label: unisockets_public
 spec:
   urls:
-    - wss://signaler.webnetes.dev
+    - wss://signaler.webnetesctl.vercel.app
   retryAfter: 1000
 </code></pre>
 <p>A signaler signals connections as described in <a href="https://github.com/alphahorizonio/unisockets#components">unisockets</a>. It has the following fields:</p>
@@ -217,7 +217,7 @@ spec:
 <li><code>retryAfter</code>: An interval in milliseconds after which to try to re-connect to the signaling servers</li>
 </ul>
 <h2 id="stun-server"><a class="header" href="#stun-server">STUN Server</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Google STUN Server
@@ -231,7 +231,7 @@ spec:
 <li><code>urls</code>: An array of STUN server URLs.</li>
 </ul>
 <h2 id="turn-server"><a class="header" href="#turn-server">TURN Server</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (UDP)
@@ -249,7 +249,7 @@ spec:
 <li><code>credential</code>: The credential to authenticate with when connecting to the TURN server</li>
 </ul>
 <h2 id="network"><a class="header" href="#network">Network</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Network
 metadata:
   name: Public unisockets network
@@ -271,7 +271,7 @@ spec:
 <li><code>turnServers</code>s: An array of <a href="#turn-server">TURN server</a> labels</li>
 </ul>
 <h2 id="network-interface"><a class="header" href="#network-interface">Network Interface</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: NetworkInterface
 metadata:
   name: Go Echo Network
@@ -286,7 +286,7 @@ spec:
 <li><code>prefix</code>: The first three octets of the subnet to create/join.</li>
 </ul>
 <h2 id="tracker"><a class="header" href="#tracker">Tracker</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: OpenWebTorrent
@@ -300,7 +300,7 @@ spec:
 <li><code>urls</code>: An array of tracker server URLs. Currently, only the first entry is respected.</li>
 </ul>
 <h2 id="repository"><a class="header" href="#repository">Repository</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Repository
 metadata:
   name: Public WebTorrent
@@ -324,7 +324,7 @@ spec:
 <li><code>turnServers</code>s: An array of <a href="#turn-server">TURN server</a> labels</li>
 </ul>
 <h2 id="file"><a class="header" href="#file">File</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: Go Echo Server Binary
@@ -339,7 +339,7 @@ spec:
 <li><code>uri</code>: The magnet link or info hash of the file to add</li>
 </ul>
 <h2 id="arguments"><a class="header" href="#arguments">Arguments</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: Go Echo Server Configuration
@@ -354,7 +354,7 @@ spec:
 <li><code>argv</code>: An array of command-line arguments to pass to the workload</li>
 </ul>
 <h2 id="workload"><a class="header" href="#workload">Workload</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: Go Echo Server

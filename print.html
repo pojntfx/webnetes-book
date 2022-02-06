@@ -136,14 +136,14 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="the-webnetes-project"><a class="header" href="#the-webnetes-project">The Webnetes Project</a></h1>
-<p><a href="https://webnetes.dev/"><img src="./getting-started/img/start.png" alt="webnetesctl start screen" /></a></p>
+<p><a href="https://webnetesctl.vercel.app/"><img src="./getting-started/img/start.png" alt="webnetesctl start screen" /></a></p>
 <p><strong>The Webnetes Project</strong> is an effort to build a peer-to-peer computing platform for the browser and node. It uses <a href="https://en.wikipedia.org/wiki/WebAssembly">WebAssembly</a> for compute, <a href="https://en.wikipedia.org/wiki/WebRTC">WebRTC</a> for networking and <a href="https://en.wikipedia.org/wiki/WebTorrent">WebTorrent</a> for storage.</p>
 <p>The Webnetes Project is free and open source, you can find the source code on <a href="https://github.com/alphahorizonio/webnetes">GitHub</a>. Issues and feature requests can be posted on the <a href="https://github.com/alphahorizonio/webnetes/issues">GitHub issue tracker</a>. For more information on contributing, see the <a href="./CONTRIBUTING.html">contributing guide</a>.</p>
 <h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
 <p><strong>Want to learn more about the project?</strong> Continue to the <a href="./INTRODUCTION.html">introduction</a>.</p>
 <p><strong>Want to see it in action?</strong> Check out the <a href="https://www.youtube.com/watch?v=W0PayDQ7RIg">demo video</a>.</p>
 <p><strong>Want to use Webnetes or develop for it?</strong> Follow the <a href="./getting-started">getting started guide</a> or run the app directly:<br>
-<a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
+<a href="https://webnetesctl.vercel.app/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <h2 id="license"><a class="header" href="#license">License</a></h2>
 <p>The Webnetes Project © 2021 Felicitas Pojtinger and contributors</p>
 <p>SPDX-License-Identifier: AGPL-3.0</p>
@@ -1965,7 +1965,7 @@ seed: all
 <p>Now that you've got your app's build configuration up and running, you can start deploying your app to Webnetes. Doing so is a pretty simple process:</p>
 <ol>
 <li>Define your app's resources using a <code>stack.yaml</code> file</li>
-<li>Create a cluster using <a href="https://webnetes.dev/">webnetesctl</a> or <a href="https://lite.webnetes.dev/">webnetesctl Lite</a></li>
+<li>Create a cluster using <a href="https://webnetesctl.vercel.app/">webnetesctl</a> or <a href="https://webnetesctl-lite.vercel.app/">webnetesctl Lite</a></li>
 <li>Invite nodes to your cluster</li>
 <li>Deploy your app's resources to a desired target node</li>
 <li>Open your app's terminal and interact with it!</li>
@@ -1976,56 +1976,56 @@ seed: all
 <p>You can find a pre-configured <code>stack.yaml</code> file for the examples in the corresponding source code; see <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples">alphahorizonio/webnetes/examples</a> for a list of all examples. To get a head start, you can use the <code>stack.yaml</code> of the example you've used. A typical <code>stack.yaml</code> (here of the C TCP Echo Server example) looks something like the following:</p>
 <details>
 	<summary>YAML Source</summary>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Generic WASI
   label: wasi_generic
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Creating a socket
   label: net_socket
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Sending over a socket
   label: net_send
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Receiving from a socket
   label: net_receive
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Binding an alias to a socket
   label: net_bind
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Listen on a socket
   label: net_listen
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Accept on a socket
   label: net_accept
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Processor
 metadata:
   name: Felicitas's iPhone
@@ -2041,17 +2041,17 @@ spec:
     - net_listen
     - net_accept
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Signaler
 metadata:
   name: Public unisockets Signaling Server
   label: unisockets_public
 spec:
   urls:
-    - wss://signaler.webnetes.dev
+    - wss://signaler.webnetesctl.vercel.app
   retryAfter: 1000
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Google STUN Server
@@ -2060,7 +2060,7 @@ spec:
   urls:
     - stun:stun.l.google.com:19302
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Twillio STUN Server
@@ -2069,7 +2069,7 @@ spec:
   urls:
     - stun:global.stun.twilio.com:3478?transport=udp
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (UDP)
@@ -2080,7 +2080,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (TCP)
@@ -2091,7 +2091,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server Fallback (TCP)
@@ -2102,7 +2102,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Network
 metadata:
   name: Public unisockets network
@@ -2117,7 +2117,7 @@ spec:
     - twillio_tcp
     - twillio_tcp_fallback
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: NetworkInterface
 metadata:
   name: C Echo Network
@@ -2126,7 +2126,7 @@ spec:
   network: unisockets_public
   prefix: 127.19.0
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: OpenWebTorrent
@@ -2135,7 +2135,7 @@ spec:
   urls:
     - wss://tracker.openwebtorrent.com
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: Fastcast
@@ -2144,7 +2144,7 @@ spec:
   urls:
     - wss://tracker.fastcast.nz
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Repository
 metadata:
   name: Public WebTorrent
@@ -2161,7 +2161,7 @@ spec:
     - twillio_tcp
     - twillio_tcp_fallback
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: C Echo Server Binary
@@ -2170,7 +2170,7 @@ spec:
   repository: webtorrent_public
   uri: d1eb90cb38bbffd1705f49e3e68a57d2c104b594
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: C Echo Server Configuration
@@ -2182,7 +2182,7 @@ spec:
     - -p
     - 1234
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: C Echo Server
@@ -2205,7 +2205,7 @@ spec:
 </details>
 <p>You can find a full reference of the available resources in the <a href="getting-started/../reference/resources-yaml.html">resources YAML reference</a>.</p>
 <h2 id="seeding-the-webassembly-binary"><a class="header" href="#seeding-the-webassembly-binary">Seeding the WebAssembly Binary</a></h2>
-<p>Next up, you have to make the WebAssembly binary available to Webnetes. This is done using <a href="https://webtorrent.io/">WebTorrent</a>, a BitTorrent implementation using WebRTC. For your convenience, a <code>seed</code> Make target has been added to the examples, but you can also seed using something like <a href="https://webtorrent.io/desktop/">WebTorrent Desktop</a>, <a href="https://instant.io/">instant.io</a>, <a href="https://webnetes.dev/">webnetesctl</a> or <a href="https://lite.webnetes.dev/">webnetesctl Lite</a>. For the following we'll use the <code>seed</code> Make target because it's the most convenient. Note that for Go there are two targets: <code>seed-go</code> and <code>seed-tinygo</code>. Consult the relevant <a href="getting-started/./develop/go.html#make-configuration">Develop section</a> for more information on what each target does.</p>
+<p>Next up, you have to make the WebAssembly binary available to Webnetes. This is done using <a href="https://webtorrent.io/">WebTorrent</a>, a BitTorrent implementation using WebRTC. For your convenience, a <code>seed</code> Make target has been added to the examples, but you can also seed using something like <a href="https://webtorrent.io/desktop/">WebTorrent Desktop</a>, <a href="https://instant.io/">instant.io</a>, <a href="https://webnetesctl.vercel.app/">webnetesctl</a> or <a href="https://webnetesctl-lite.vercel.app/">webnetesctl Lite</a>. For the following we'll use the <code>seed</code> Make target because it's the most convenient. Note that for Go there are two targets: <code>seed-go</code> and <code>seed-tinygo</code>. Consult the relevant <a href="getting-started/./develop/go.html#make-configuration">Develop section</a> for more information on what each target does.</p>
 <p>Let's seed the WebAssembly binary; we'll use the <a href="getting-started/./develop/c.html#tcp-echo-server">C TCP Echo Server</a> as an example:</p>
 <pre><code class="language-shell">$ make seed
 Seeding: echo_server.wasm
@@ -2215,7 +2215,7 @@ Running time: 10 seconds  Time remaining: N/A  Peers: 0/
 </code></pre>
 <p>Note the <code>Info hash</code> value; using it, for as long as you keep the terminal open, you can now fetch the WebAssembly binary from anywhere in the world, using for example <a href="https://instant.io/">instant.io</a>. The info hash changes whenever your binary changes, which means that it also serves as a kind of checksum.</p>
 <p>Before we can start deployment, don't forget to replace the <code>uri</code> of the <code>File</code> resource in the <code>stack.yaml</code> above with the <code>Info hash</code> from the <code>make seed</code> command. It should look something like this (depending on the example you're using):</p>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: C Echo Server Binary
@@ -2225,9 +2225,9 @@ spec:
   uri: d1eb90cb38bbffd1705f49e3e68a57d2c104b594
 </code></pre>
 <h2 id="creating-a-cluster"><a class="header" href="#creating-a-cluster">Creating a Cluster</a></h2>
-<p>Let's create a cluster for our app. We'll use <a href="https://webnetes.dev/">webnetesctl</a> from now on, but feel free to use <a href="https://lite.webnetes.dev/">webnetesctl Lite</a> if you prefer something more lightweight.</p>
+<p>Let's create a cluster for our app. We'll use <a href="https://webnetesctl.vercel.app/">webnetesctl</a> from now on, but feel free to use <a href="https://webnetesctl-lite.vercel.app/">webnetesctl Lite</a> if you prefer something more lightweight.</p>
 <p>First, open webnetesctl:</p>
-<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
+<p><a href="https://webnetesctl.vercel.app/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <p>You'll be presented with a screen like the following:</p>
 <p><img src="getting-started/./img/start.png" alt="webnetesctl start screen" /></p>
 <p>We now have to create a cluster using a cluster ID. We'll choose <code>69.42.8</code> in this example. Enter this value in the <code>New Cluster ID</code> field and click on <code>Create Cluster</code>. You should be greeted by the following:</p>
@@ -2245,7 +2245,7 @@ spec:
 <p>Let's deploy the resources. Doing so is simple; just click <code>+ Create</code> in the top menu and select <code>Resource</code>. Now, paste the contents of the <code>stack.yaml</code> file you've created above into the <code>Definition</code> editor; it's structure will be visualized to the right:</p>
 <p><img src="getting-started/./img/create-resource.png" alt="webnetesctl create resource dialog" /></p>
 <p>Next, let's adjust the server's network configuration by changing the <code>Arguments</code> resource to use an IP address in the within the cluster ID subnet we've created above (<code>69.42.8</code>):</p>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: C Echo Server Configuration
@@ -2261,7 +2261,7 @@ spec:
 <p>Another thing you might want to change is the <code>terminalHostNodeId</code> of the <code>Workload</code> resource. This parameter specifies where to attach the terminal to; you probably want to attach it to your manager node for your convenience. To find your manager node's IP, minimize the dialog using the <code>_</code> button in the top right, and go to the <code>Config</code> tab:</p>
 <p><img src="getting-started/./img/config.png" alt="webnetesctl config tab" /></p>
 <p>Copy your IP, and open up the resource dialog again by clicking the tray in the bottom center. Now, replace the <code>Workload</code> resource's <code>terminalHostNodeId</code> key:</p>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: C Echo Server
@@ -2336,13 +2336,13 @@ spec:
 <p>To interact with the <a href="components/./webnetes.html">node</a>, an app is used. It provides an easy-to-use interface to develop, distribute and operate apps on Webnetes. It should be noted that while webnetesctl is the primary app, you can also choose to use an alternative for a more lightweight experience or even build your own app without too much effort.</p>
 <h2 id="implementations"><a class="header" href="#implementations">Implementations</a></h2>
 <h3 id="webnetesctl"><a class="header" href="#webnetesctl">webnetesctl</a></h3>
-<p><a href="https://webnetes.dev/"><img src="components/../getting-started/img/start.png" alt="webnetesctl start screen" /></a></p>
+<p><a href="https://webnetesctl.vercel.app/"><img src="components/../getting-started/img/start.png" alt="webnetesctl start screen" /></a></p>
 <p>Recommended for most users. Webnetesctl is built with React, Ant Design and the <a href="components/./webnetes.html">Webnetes node</a>. For more information, check out the <a href="https://github.com/alphahorizonio/webnetesctl">source code</a> or try it out:</p>
-<p><a href="https://webnetes.dev/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
+<p><a href="https://webnetesctl.vercel.app/"><img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240"></a></p>
 <h3 id="webnetesctl-lite"><a class="header" href="#webnetesctl-lite">webnetesctl Lite</a></h3>
-<p><a href="https://lite.webnetes.dev/"><img src="components/../getting-started/img/start-lite.png" alt="webnetesctl Lite start screen" /></a></p>
+<p><a href="https://webnetesctl-lite.vercel.app/"><img src="components/../getting-started/img/start-lite.png" alt="webnetesctl Lite start screen" /></a></p>
 <p>For advanced users who prefer something more lightweight. Webnetesctl Lite is built with Vanilla JS and the <a href="components/./webnetes.html">Webnetes node</a>; for more information, check out the <a href="https://github.com/alphahorizonio/webnetes/tree/main/app/webnetes_web">source code</a> or try it out:</p>
-<p><a href="https://lite.webnetes.dev/"><img src="https://img.shields.io/badge/webnetesctl%20Lite-lite.webnetes.dev-blueviolet" alt="Lite" /></a></p>
+<p><a href="https://webnetesctl-lite.vercel.app/"><img src="https://img.shields.io/badge/webnetesctl%20Lite-webnetesctl-lite.vercel.app-blueviolet" alt="Lite" /></a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="bindings"><a class="header" href="#bindings">Bindings</a></h1>
 <p>If you want to support something that isn't part of your language's libraries or not supported by your runtime, you can polyfill it using bindings to Webnetes.</p>
 <p>There are currently two bindings which do this, in particular to support networking:</p>
@@ -2361,14 +2361,14 @@ spec:
 <p>Webnetes is based on the concept of resources as the primary means of configuration. This is a listing of all available resources. Many examples of resource YAML usage can be found in the <code>stack.yaml</code> files in the <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples">repository</a>.</p>
 <p>Resources have a few common fields:</p>
 <ul>
-<li><code>apiVersion</code>: The API version, currently always <code>schema.webnetes.dev/v1alpha1</code></li>
+<li><code>apiVersion</code>: The API version, currently always <code>schema.webnetesctl.vercel.app/v1alpha1</code></li>
 <li><code>kind</code>: The resource type</li>
 <li><code>metadata</code>: Contains a <code>label</code> (the node-unique identifier) and a <code>name</code> (the human-readable descriptor)</li>
 <li><code>spec</code>: The resource-specific data</li>
 </ul>
 <p>This pattern is strongly influenced by <a href="https://kubernetes.io/">Kubernetes</a>.</p>
 <h2 id="runtime"><a class="header" href="#runtime">Runtime</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -2384,7 +2384,7 @@ spec: {}
 <li><code>jssi_teavm</code>: For Java using JSSI</li>
 </ul>
 <h2 id="capability"><a class="header" href="#capability">Capability</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -2402,7 +2402,7 @@ spec: {}
 <li><code>net_connect</code>: Enables connecting to a socket</li>
 </ul>
 <h2 id="processor"><a class="header" href="#processor">Processor</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Processor
 metadata:
   name: Felicitas's iPhone
@@ -2424,14 +2424,14 @@ spec:
 <li><code>capabilties</code>: An array of <a href="reference/resources-yaml.html#capability">capability</a> labels</li>
 </ul>
 <h2 id="signaler"><a class="header" href="#signaler">Signaler</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Signaler
 metadata:
   name: Public unisockets Signaling Server
   label: unisockets_public
 spec:
   urls:
-    - wss://signaler.webnetes.dev
+    - wss://signaler.webnetesctl.vercel.app
   retryAfter: 1000
 </code></pre>
 <p>A signaler signals connections as described in <a href="https://github.com/alphahorizonio/unisockets#components">unisockets</a>. It has the following fields:</p>
@@ -2440,7 +2440,7 @@ spec:
 <li><code>retryAfter</code>: An interval in milliseconds after which to try to re-connect to the signaling servers</li>
 </ul>
 <h2 id="stun-server"><a class="header" href="#stun-server">STUN Server</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Google STUN Server
@@ -2454,7 +2454,7 @@ spec:
 <li><code>urls</code>: An array of STUN server URLs.</li>
 </ul>
 <h2 id="turn-server"><a class="header" href="#turn-server">TURN Server</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (UDP)
@@ -2472,7 +2472,7 @@ spec:
 <li><code>credential</code>: The credential to authenticate with when connecting to the TURN server</li>
 </ul>
 <h2 id="network"><a class="header" href="#network">Network</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Network
 metadata:
   name: Public unisockets network
@@ -2494,7 +2494,7 @@ spec:
 <li><code>turnServers</code>s: An array of <a href="reference/resources-yaml.html#turn-server">TURN server</a> labels</li>
 </ul>
 <h2 id="network-interface"><a class="header" href="#network-interface">Network Interface</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: NetworkInterface
 metadata:
   name: Go Echo Network
@@ -2509,7 +2509,7 @@ spec:
 <li><code>prefix</code>: The first three octets of the subnet to create/join.</li>
 </ul>
 <h2 id="tracker"><a class="header" href="#tracker">Tracker</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: OpenWebTorrent
@@ -2523,7 +2523,7 @@ spec:
 <li><code>urls</code>: An array of tracker server URLs. Currently, only the first entry is respected.</li>
 </ul>
 <h2 id="repository"><a class="header" href="#repository">Repository</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Repository
 metadata:
   name: Public WebTorrent
@@ -2547,7 +2547,7 @@ spec:
 <li><code>turnServers</code>s: An array of <a href="reference/resources-yaml.html#turn-server">TURN server</a> labels</li>
 </ul>
 <h2 id="file"><a class="header" href="#file">File</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: Go Echo Server Binary
@@ -2562,7 +2562,7 @@ spec:
 <li><code>uri</code>: The magnet link or info hash of the file to add</li>
 </ul>
 <h2 id="arguments"><a class="header" href="#arguments">Arguments</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: Go Echo Server Configuration
@@ -2577,7 +2577,7 @@ spec:
 <li><code>argv</code>: An array of command-line arguments to pass to the workload</li>
 </ul>
 <h2 id="workload"><a class="header" href="#workload">Workload</a></h2>
-<pre><code class="language-yaml">apiVersion: schema.webnetes.dev/v1alpha1
+<pre><code class="language-yaml">apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: Go Echo Server
