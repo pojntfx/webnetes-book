@@ -3,7 +3,7 @@
 Documentation for The Webnetes Project.
 
 [![mdBook CI](https://github.com/alphahorizonio/webnetes-book/actions/workflows/mdbook.yaml/badge.svg)](https://github.com/alphahorizonio/webnetes-book/actions/workflows/mdbook.yaml)
-[![Part of webnetes](https://img.shields.io/badge/Part%20of-webnetes-black)](https://webnetes.dev/)
+[![Part of webnetes](https://img.shields.io/badge/Part%20of-webnetes-black)](https://webnetesctl.vercel.app/)
 
 ## Overview
 

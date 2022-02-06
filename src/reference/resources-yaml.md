@@ -4,7 +4,7 @@ Webnetes is based on the concept of resources as the primary means of configurat
 
 Resources have a few common fields:
 
-- `apiVersion`: The API version, currently always `schema.webnetes.dev/v1alpha1`
+- `apiVersion`: The API version, currently always `schema.webnetesctl.vercel.app/v1alpha1`
 - `kind`: The resource type
 - `metadata`: Contains a `label` (the node-unique identifier) and a `name` (the human-readable descriptor)
 - `spec`: The resource-specific data
@@ -14,7 +14,7 @@ This pattern is strongly influenced by [Kubernetes](https://kubernetes.io/).
 ## Runtime
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -33,7 +33,7 @@ A runtime adds support for a language, as described in [compute](../architecture
 ## Capability
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Go JSSI
@@ -54,7 +54,7 @@ A capability enables imports, as described in [compute](../architecture/compute.
 ## Processor
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Processor
 metadata:
   name: Felicitas's iPhone
@@ -79,14 +79,14 @@ A processor defines a virtual node. It has the following fields:
 ## Signaler
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Signaler
 metadata:
   name: Public unisockets Signaling Server
   label: unisockets_public
 spec:
   urls:
-    - wss://signaler.webnetes.dev
+    - wss://signaler.webnetesctl.vercel.app
   retryAfter: 1000
 ```
 
@@ -98,7 +98,7 @@ A signaler signals connections as described in [unisockets](https://github.com/a
 ## STUN Server
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Google STUN Server
@@ -115,7 +115,7 @@ A STUN Server creates peer-to-peer connections by hole-punching NATs. It has the
 ## TURN Server
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (UDP)
@@ -136,7 +136,7 @@ A TURN server relays messages when peer-to-peer connections are not possible. It
 ## Network
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Network
 metadata:
   name: Public unisockets network
@@ -161,7 +161,7 @@ A network defines a global peer-to-peer overlay network. It has the following fi
 ## Network Interface
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: NetworkInterface
 metadata:
   name: Go Echo Network
@@ -179,7 +179,7 @@ A network interface allow connecting to a [network](#network)'s subnet. It has t
 ## Tracker
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: OpenWebTorrent
@@ -196,7 +196,7 @@ A tracker configures a WebTorrent tracker, which tracks the [files](#file) which
 ## Repository
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Repository
 metadata:
   name: Public WebTorrent
@@ -223,7 +223,7 @@ A repository enables seeding & adding [file](#file)s. It has the following field
 ## File
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: Go Echo Server Binary
@@ -241,7 +241,7 @@ A file references a file seeded using WebTorrent in a [repository](#repository).
 ## Arguments
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: Go Echo Server Configuration
@@ -259,7 +259,7 @@ A arguments resource supplies the command line arguments for a [workload](#workl
 ## Workload
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: Go Echo Server

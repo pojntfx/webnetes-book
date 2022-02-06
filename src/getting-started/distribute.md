@@ -3,7 +3,7 @@
 Now that you've got your app's build configuration up and running, you can start deploying your app to Webnetes. Doing so is a pretty simple process:
 
 1. Define your app's resources using a `stack.yaml` file
-2. Create a cluster using [webnetesctl](https://webnetes.dev/) or [webnetesctl Lite](https://lite.webnetes.dev/)
+2. Create a cluster using [webnetesctl](https://webnetesctl.vercel.app/) or [webnetesctl Lite](https://webnetesctl-lite.vercel.app/)
 3. Invite nodes to your cluster
 4. Deploy your app's resources to a desired target node
 5. Open your app's terminal and interact with it!
@@ -20,56 +20,56 @@ You can find a pre-configured `stack.yaml` file for the examples in the correspo
 	<summary>YAML Source</summary>
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Runtime
 metadata:
   name: Generic WASI
   label: wasi_generic
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Creating a socket
   label: net_socket
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Sending over a socket
   label: net_send
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Receiving from a socket
   label: net_receive
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Binding an alias to a socket
   label: net_bind
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Listen on a socket
   label: net_listen
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Capability
 metadata:
   name: Accept on a socket
   label: net_accept
 spec: {}
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Processor
 metadata:
   name: Felicitas's iPhone
@@ -85,17 +85,17 @@ spec:
     - net_listen
     - net_accept
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Signaler
 metadata:
   name: Public unisockets Signaling Server
   label: unisockets_public
 spec:
   urls:
-    - wss://signaler.webnetes.dev
+    - wss://signaler.webnetesctl.vercel.app
   retryAfter: 1000
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Google STUN Server
@@ -104,7 +104,7 @@ spec:
   urls:
     - stun:stun.l.google.com:19302
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: StunServer
 metadata:
   name: Twillio STUN Server
@@ -113,7 +113,7 @@ spec:
   urls:
     - stun:global.stun.twilio.com:3478?transport=udp
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (UDP)
@@ -124,7 +124,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server (TCP)
@@ -135,7 +135,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: TurnServer
 metadata:
   name: Twillio TURN Server Fallback (TCP)
@@ -146,7 +146,7 @@ spec:
   username: f4b4035eaa76f4a55de5f4351567653ee4ff6fa97b50b6b334fcc1be9c27212d
   credential: w1uxM55V9yVoqyVFjt+mxDBV0F87AUCemaYVQGxsPLw=
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Network
 metadata:
   name: Public unisockets network
@@ -161,7 +161,7 @@ spec:
     - twillio_tcp
     - twillio_tcp_fallback
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: NetworkInterface
 metadata:
   name: C Echo Network
@@ -170,7 +170,7 @@ spec:
   network: unisockets_public
   prefix: 127.19.0
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: OpenWebTorrent
@@ -179,7 +179,7 @@ spec:
   urls:
     - wss://tracker.openwebtorrent.com
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Tracker
 metadata:
   name: Fastcast
@@ -188,7 +188,7 @@ spec:
   urls:
     - wss://tracker.fastcast.nz
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Repository
 metadata:
   name: Public WebTorrent
@@ -205,7 +205,7 @@ spec:
     - twillio_tcp
     - twillio_tcp_fallback
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: C Echo Server Binary
@@ -214,7 +214,7 @@ spec:
   repository: webtorrent_public
   uri: d1eb90cb38bbffd1705f49e3e68a57d2c104b594
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: C Echo Server Configuration
@@ -226,7 +226,7 @@ spec:
     - -p
     - 1234
 ---
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: C Echo Server
@@ -253,7 +253,7 @@ You can find a full reference of the available resources in the [resources YAML 
 
 ## Seeding the WebAssembly Binary
 
-Next up, you have to make the WebAssembly binary available to Webnetes. This is done using [WebTorrent](https://webtorrent.io/), a BitTorrent implementation using WebRTC. For your convenience, a `seed` Make target has been added to the examples, but you can also seed using something like [WebTorrent Desktop](https://webtorrent.io/desktop/), [instant.io](https://instant.io/), [webnetesctl](https://webnetes.dev/) or [webnetesctl Lite](https://lite.webnetes.dev/). For the following we'll use the `seed` Make target because it's the most convenient. Note that for Go there are two targets: `seed-go` and `seed-tinygo`. Consult the relevant [Develop section](./develop/go.md#make-configuration) for more information on what each target does.
+Next up, you have to make the WebAssembly binary available to Webnetes. This is done using [WebTorrent](https://webtorrent.io/), a BitTorrent implementation using WebRTC. For your convenience, a `seed` Make target has been added to the examples, but you can also seed using something like [WebTorrent Desktop](https://webtorrent.io/desktop/), [instant.io](https://instant.io/), [webnetesctl](https://webnetesctl.vercel.app/) or [webnetesctl Lite](https://webnetesctl-lite.vercel.app/). For the following we'll use the `seed` Make target because it's the most convenient. Note that for Go there are two targets: `seed-go` and `seed-tinygo`. Consult the relevant [Develop section](./develop/go.md#make-configuration) for more information on what each target does.
 
 Let's seed the WebAssembly binary; we'll use the [C TCP Echo Server](./develop/c.md#tcp-echo-server) as an example:
 
@@ -270,7 +270,7 @@ Note the `Info hash` value; using it, for as long as you keep the terminal open,
 Before we can start deployment, don't forget to replace the `uri` of the `File` resource in the `stack.yaml` above with the `Info hash` from the `make seed` command. It should look something like this (depending on the example you're using):
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: File
 metadata:
   name: C Echo Server Binary
@@ -282,11 +282,11 @@ spec:
 
 ## Creating a Cluster
 
-Let's create a cluster for our app. We'll use [webnetesctl](https://webnetes.dev/) from now on, but feel free to use [webnetesctl Lite](https://lite.webnetes.dev/) if you prefer something more lightweight.
+Let's create a cluster for our app. We'll use [webnetesctl](https://webnetesctl.vercel.app/) from now on, but feel free to use [webnetesctl Lite](https://webnetesctl-lite.vercel.app/) if you prefer something more lightweight.
 
 First, open webnetesctl:
 
-[<img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240">](https://webnetes.dev/)
+[<img src="https://github.com/alphahorizonio/webnetesctl/raw/main/img/launch.png" width="240">](https://webnetesctl.vercel.app/)
 
 You'll be presented with a screen like the following:
 
@@ -323,7 +323,7 @@ Let's deploy the resources. Doing so is simple; just click `+ Create` in the top
 Next, let's adjust the server's network configuration by changing the `Arguments` resource to use an IP address in the within the cluster ID subnet we've created above (`69.42.8`):
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Arguments
 metadata:
   name: C Echo Server Configuration
@@ -345,7 +345,7 @@ Another thing you might want to change is the `terminalHostNodeId` of the `Workl
 Copy your IP, and open up the resource dialog again by clicking the tray in the bottom center. Now, replace the `Workload` resource's `terminalHostNodeId` key:
 
 ```yaml
-apiVersion: schema.webnetes.dev/v1alpha1
+apiVersion: schema.webnetesctl.vercel.app/v1alpha1
 kind: Workload
 metadata:
   name: C Echo Server
