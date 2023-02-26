@@ -5,8 +5,10 @@
         <meta charset="UTF-8">
         <title>The Webnetes Project</title>
         <meta name="robots" content="noindex" />
+
+
         <!-- Custom HTML head -->
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
@@ -17,25 +19,29 @@
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
         <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
         <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
+
     </head>
     <body>
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -51,7 +57,7 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -63,7 +69,7 @@
         </script>
 
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        <script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -84,7 +90,7 @@
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                <div id="menu-bar-hover-placeholder"></div>
+                                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
                         <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -94,7 +100,7 @@
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
@@ -111,6 +117,7 @@
                         <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
+
                     </div>
                 </div>
 
@@ -124,8 +131,9 @@
                         </ul>
                     </div>
                 </div>
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -173,9 +181,10 @@
 <h2 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status"><a class="header" href="#language-support-status">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world"><a class="header" href="#hello-world">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in C with native and WebAssembly targets. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/c_hello_world">GitHub</a>.</p>
 <h3 id="source-code"><a class="header" href="#source-code">Source Code</a></h3>
@@ -745,9 +754,10 @@ You've sent: Hello, dear reader!
 <h2 id="table-of-contents-1"><a class="header" href="#table-of-contents-1">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-1"><a class="header" href="#language-support-status-1">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world-1"><a class="header" href="#hello-world-1">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in C++ with native and WebAssembly targets. For C++, the process is pretty much the same as for <a href="getting-started/develop/./c.html">C</a>. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/cpp_hello_world">GitHub</a>.</p>
 <h3 id="source-code-3"><a class="header" href="#source-code-3">Source Code</a></h3>
@@ -1195,9 +1205,10 @@ endif()
 <h2 id="table-of-contents-2"><a class="header" href="#table-of-contents-2">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-2"><a class="header" href="#language-support-status-2">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr>
 </tbody></table>
+</div>
 <p>Go &amp; <a href="https://tinygo.org/">TinyGo</a> are supported, but the latter only has limited support for concurrency.</p>
 <h2 id="hello-world-2"><a class="header" href="#hello-world-2">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in Go with native and WebAssembly targets. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/go_hello_world">GitHub</a>.</p>
@@ -1575,9 +1586,10 @@ Connected to 127.0.0.1:4206
 <h2 id="table-of-contents-3"><a class="header" href="#table-of-contents-3">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-3"><a class="header" href="#language-support-status-3">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world-3"><a class="header" href="#hello-world-3">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in Rust with native and WebAssembly targets. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/rust_hello_world">GitHub</a>.</p>
 <h3 id="crate"><a class="header" href="#crate">Crate</a></h3>
@@ -1588,8 +1600,7 @@ Connected to 127.0.0.1:4206
 <p>Replace <code>src/main.rs</code> with the following content:</p>
 <pre><pre class="playground"><code class="language-rust">fn main() {
     println!(&quot;Hello, world!&quot;);
-}
-</code></pre></pre>
+}</code></pre></pre>
 <p>It prints <code>Hello, world!</code> to standard output.</p>
 <h3 id="make-configuration-9"><a class="header" href="#make-configuration-9">Make Configuration</a></h3>
 <p>Create a <code>Makefile</code> with the following content:</p>
@@ -1633,9 +1644,10 @@ Hello, world!
 <h2 id="table-of-contents-4"><a class="header" href="#table-of-contents-4">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-4"><a class="header" href="#language-support-status-4">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world-4"><a class="header" href="#hello-world-4">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in Zig with native and WebAssembly targets. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/zig_hello_world">GitHub</a>.</p>
 <h3 id="source-code-10"><a class="header" href="#source-code-10">Source Code</a></h3>
@@ -1690,9 +1702,10 @@ Hello, world!
 <h2 id="table-of-contents-5"><a class="header" href="#table-of-contents-5">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-5"><a class="header" href="#language-support-status-5">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>✅</td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world-5"><a class="header" href="#hello-world-5">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in Java with native and WebAssembly targets. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/rust_hello_world">GitHub</a>.</p>
 <h3 id="pom"><a class="header" href="#pom">POM</a></h3>
@@ -1868,9 +1881,10 @@ Hello, world!
 <h2 id="table-of-contents-6"><a class="header" href="#table-of-contents-6">Table of Contents</a></h2>
 <!-- toc -->
 <h2 id="language-support-status-6"><a class="header" href="#language-support-status-6">Language Support Status</a></h2>
-<table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Native</th><th>WebAssembly</th><th>Networking</th><th>Concurrency</th></tr></thead><tbody>
 <tr><td>❌<sup class="footnote-reference"><a href="#1">1</a></sup></td><td>✅</td><td>❌<sup class="footnote-reference"><a href="#2">2</a></sup></td><td>❌<sup class="footnote-reference"><a href="#3">3</a></sup></td></tr>
 </tbody></table>
+</div>
 <h2 id="hello-world-6"><a class="header" href="#hello-world-6">Hello, world!</a></h2>
 <p>Let's start by writing a hello world app in AssemblyScript. The full source code of this example is available on <a href="https://github.com/alphahorizonio/webnetes/tree/main/examples/assemblyscript_hello_world">GitHub</a>.</p>
 <h3 id="package"><a class="header" href="#package">Package</a></h3>
@@ -2750,31 +2764,43 @@ npm i -s @alphahorizonio/webnetes
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
             </nav>
 
         </div>
 
-        <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
+
+    </div>
     </body>
 </html>
